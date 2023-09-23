@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgjc6xnpw0epb"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_u1r8i"]
+[ext_resource type="PackedScene" uid="uid://cj0qr7uolwmxn" path="res://scenes/players/player.tscn" id="3_6rr67"]
+[ext_resource type="PackedScene" uid="uid://cewyvnsyw84r5" path="res://scenes/projectiles/wall.tscn" id="4_48oha"]
+[ext_resource type="PackedScene" uid="uid://c2dlx164o1pmt" path="res://scenes/projectiles/boomb.tscn" id="4_t7uwv"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_u1r8i")
+
+[node name="Wall" parent="." instance=ExtResource("4_48oha")]
+position = Vector2(197, 505)
+
+[node name="Wall5" parent="Wall" instance=ExtResource("4_48oha")]
+position = Vector2(320, 0)
+
+[node name="Wall6" parent="Wall" instance=ExtResource("4_48oha")]
+position = Vector2(384, 0)
+
+[node name="Wall7" parent="Wall" instance=ExtResource("4_48oha")]
+position = Vector2(192, 0)
+
+[node name="Wall8" parent="Wall" instance=ExtResource("4_48oha")]
+position = Vector2(256, 0)
+
+[node name="Wall3" parent="Wall" instance=ExtResource("4_48oha")]
+position = Vector2(64, 0)
+
+[node name="Wall4" parent="Wall" instance=ExtResource("4_48oha")]
+position = Vector2(128, 0)
+
+[node name="Wall2" parent="Wall" instance=ExtResource("4_48oha")]
+position = Vector2(-64, 0)
+
+[node name="Wall9" parent="Wall" instance=ExtResource("4_48oha")]
+position = Vector2(384, 0)
+
+[node name="Wall10" parent="Wall" instance=ExtResource("4_48oha")]
+position = Vector2(836, 0)
+
+[node name="Wall11" parent="Wall" instance=ExtResource("4_48oha")]
+position = Vector2(706, 0)
+
+[node name="Wall12" parent="Wall" instance=ExtResource("4_48oha")]
+position = Vector2(770, 0)
+
+[node name="Wall13" parent="Wall" instance=ExtResource("4_48oha")]
+position = Vector2(578, 0)
+
+[node name="Wall14" parent="Wall" instance=ExtResource("4_48oha")]
+position = Vector2(642, 0)
+
+[node name="Wall15" parent="Wall" instance=ExtResource("4_48oha")]
+position = Vector2(450, 0)
+
+[node name="Wall16" parent="Wall" instance=ExtResource("4_48oha")]
+position = Vector2(514, 0)
+
+[node name="Player" parent="." instance=ExtResource("3_6rr67")]
+position = Vector2(588, 382)
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="Boomb" parent="." instance=ExtResource("4_t7uwv")]
+
+[connection signal="bomb_sig" from="Player" to="." method="_on_player_bomb_sig"]
+[connection signal="laser_sig" from="Player" to="." method="_on_player_laser_sig"]

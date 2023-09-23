@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj0qr7uolwmxn"]
+
+[ext_resource type="Script" path="res://scenes/players/player.gd" id="1_020tj"]
+[ext_resource type="Texture2D" uid="uid://csofp31tjc263" path="res://icon.svg" id="2_vq6nr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glam5"]
+size = Vector2(115, 119)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+script = ExtResource("1_020tj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_glam5")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("2_vq6nr")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="GrenadeTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="MarkerLaserPostion" type="Node2D" parent="."]
+position = Vector2(0, -97)
+
+[node name="M1" type="Marker2D" parent="MarkerLaserPostion"]
+
+[node name="M2" type="Marker2D" parent="MarkerLaserPostion"]
+position = Vector2(39, 33)
+
+[node name="M3" type="Marker2D" parent="MarkerLaserPostion"]
+position = Vector2(-40, 34)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="GrenadeTimer" to="." method="_on_grenade_timer_timeout"]

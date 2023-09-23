@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://tqnbxprl3xdp"]
+
+[ext_resource type="Texture2D" uid="uid://csofp31tjc263" path="res://icon.svg" id="1_i8x7y"]
+[ext_resource type="Script" path="res://scenes/projectiles/laser.gd" id="1_mfwms"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ab0g"]
+height = 206.0
+
+[node name="Laser" type="Area2D"]
+script = ExtResource("1_mfwms")
+speed = 500
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1ab0g")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(0.1, 1.588)
+texture = ExtResource("1_i8x7y")

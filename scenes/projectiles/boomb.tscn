@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2dlx164o1pmt"]
+[gd_scene load_steps=5 format=3 uid="uid://c2dlx164o1pmt"]
 
+[ext_resource type="Script" path="res://scenes/projectiles/boomb.gd" id="1_gubu1"]
 [ext_resource type="Texture2D" uid="uid://csofp31tjc263" path="res://icon.svg" id="1_sfi3t"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m5otb"]
@@ -14,11 +15,12 @@ physics_material_override = SubResource("PhysicsMaterial_m5otb")
 gravity_scale = 2.66454e-15
 linear_velocity = Vector2(100, 2.08165e-12)
 angular_damp = 1.6
+script = ExtResource("1_gubu1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4fiyu")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(2.38419e-07, 2.1684e-19)
-scale = Vector2(0.640625, 0.231)
+position = Vector2(2.38419e-06, 2.1684e-19)
+scale = Vector2(0.5, 0.231)
 texture = ExtResource("1_sfi3t")

@@ -6,8 +6,8 @@ const SPEED = 300.0
 var can_shoot: bool = true
 var can_grenade: bool = true
 
-signal laser_sig
-signal bomb_sig(pos)
+signal laser_sig(pos, direction)
+signal bomb_sig(pos, direction)
 
 func _ready():
 	pass
@@ -16,6 +16,7 @@ func _physics_process(_delta):
 	
 	move()
 	
+	var player_direction = (get_global_mouse_position() - position).normalized()
 	if Input.is_action_pressed("primary key") and can_shoot:
 		# update global position when click attack
 #		Global.global_position = %Player.position
@@ -26,9 +27,10 @@ func _physics_process(_delta):
 #		print(mark_point)
 		var mark_rand = mark_point[randi() % mark_point.size()]
 #		print(mark_rand)
-		Global.global_position = mark_rand.global_position
+#		Global.global_position = mark_rand.global_position
+		var pos = mark_rand.global_position
 #		print(mark_rand.global_position)
-		laser_sig.emit()
+		laser_sig.emit(pos, player_direction)
 #		print('shoot')
 
 	if Input.is_action_just_pressed("secondary key") and can_grenade:
@@ -36,7 +38,7 @@ func _physics_process(_delta):
 		can_grenade = false
 		$GrenadeTimer.start()
 		var pos = $MarkerLaserPostion.get_children()[0].global_position
-		bomb_sig.emit(pos)
+		bomb_sig.emit(pos, player_direction)
 		
 		# rotate
 		look_at(get_global_mouse_position())

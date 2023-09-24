@@ -7,7 +7,7 @@ var can_shoot: bool = true
 var can_grenade: bool = true
 
 signal laser_sig
-signal bomb_sig
+signal bomb_sig(pos)
 
 func _ready():
 	pass
@@ -35,7 +35,11 @@ func _physics_process(_delta):
 		print("Boom")
 		can_grenade = false
 		$GrenadeTimer.start()
-		bomb_sig.emit()
+		var pos = $MarkerLaserPostion.get_children()[0].global_position
+		bomb_sig.emit(pos)
+		
+		# rotate
+		look_at(get_global_mouse_position())
 		
 	
 func move():

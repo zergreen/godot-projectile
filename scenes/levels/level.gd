@@ -9,11 +9,12 @@ func _on_player_laser_sig():
 #	add_child(laser)
 	laser.position = Global.global_position
 	$Projectiles.add_child(laser)
-	print(Global.global_position)
+#	print(Global.global_position)
 #	print(laser.position)
 
 
-func _on_player_bomb_sig():
+func _on_player_bomb_sig(pos):
 	var boomb = boomb_scene.instantiate()
-	boomb.position = $Player.position
+	boomb.position = pos
+	boomb.linear_velocity = Vector2.UP * 100
 	$Projectiles.add_child(boomb)

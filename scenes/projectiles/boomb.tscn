@@ -1,16 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2dlx164o1pmt"]
+[gd_scene load_steps=4 format=3 uid="uid://c2dlx164o1pmt"]
 
 [ext_resource type="Texture2D" uid="uid://csofp31tjc263" path="res://icon.svg" id="1_sfi3t"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m5otb"]
+friction = 10.0
+bounce = 0.4
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_4fiyu"]
-radius = 42.4264
+radius = 25.02
 
 [node name="Boomb" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_m5otb")
+gravity_scale = 2.66454e-15
+linear_velocity = Vector2(100, 2.08165e-12)
+angular_damp = 1.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4fiyu")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(2.08165e-12, 2.08165e-12)
-scale = Vector2(1, 0.231)
+position = Vector2(2.38419e-07, 2.1684e-19)
+scale = Vector2(0.640625, 0.231)
 texture = ExtResource("1_sfi3t")
